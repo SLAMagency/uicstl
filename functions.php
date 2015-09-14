@@ -230,6 +230,11 @@ add_filter('the_title', 'the_title_trim');
 	include('library/post-types/unit.php');
 	include('library/post-types/model.php');
 
+
+	require_once('library/SLAM/colors.php'); 
+	require_once('library/SLAM/section.php'); 
+	require_once('library/SLAM/page.php'); 
+
 //}
 
 ?>
