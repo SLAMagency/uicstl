@@ -228,6 +228,7 @@ add_filter('the_title', 'the_title_trim');
 
 	include('library/classes/metaboxes/meta_box.php');
 	include('library/post-types/unit.php');
+	include('library/post-types/model.php');
 
 //}
 
