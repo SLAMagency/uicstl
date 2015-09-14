@@ -4,7 +4,7 @@ Template Name: About*/
 ?>
 
 <?php get_header(); ?>
-			      
+	<!--Trying out git.-->		      
 			<div id="content">
 			
 				<div id="inner-content" class="row clearfix">
