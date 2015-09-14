@@ -1,0 +1,1379 @@
+/*!
+ Theme Name:   UIC
+ Theme URI:    http://slamagency.com
+ Description:  Child theme of the SLAM! theme for UIC.
+ Author:       Megan Carroll
+ Template:     slam-theme_v1
+ Version:      1.0.0
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+*/
+/* =Theme customization starts here
+-------------------------------------------------------------- */
+
+//
+// IMPORTING STYLES
+//
+
+// import child colors
+@import "colors";
+
+// import mixins
+@import "mixins";
+
+// import foundation overrides
+@import "settings";
+
+// import Foundation
+@import "/Volumes/Macintosh HD/Users/megancarroll/Documents/ Sites/UIC/slam-theme_v1/bower_components/foundation/scss/foundation.scss";
+
+// General
+#content {
+	margin-top: 4rem;
+	margin-bottom: 4rem;
+}
+
+@media only screen and (max-width: 40em) { 
+	#content {
+		margin-top: 2rem;
+	}
+}
+
+#content a:hover, #content a:focus {
+	background: scale-color($dark-gray, $lightness: -14%);
+	color: #fff;
+}
+
+#home-content {
+	background-color: #FFF;
+}
+
+div#content a {
+	text-decoration: underline;
+}
+
+div#content button a, div#content .button a {
+	color: $darkest-gray;
+	text-decoration: none !important;
+}
+
+div#content button a:hover, div#content .button a:hover {
+	color: $darkest-gray !important;
+	background-color: transparent;
+}
+
+div#content button:hover, div#content .button:hover {
+	background-color: $uic-yellow-hover;
+}
+
+.text-yellow {
+	color: $uic-yellow;
+}
+
+// Image Header
+/*
+.image-header.row {
+	margin-bottom: 4rem;
+}
+*/
+
+.image-header.row h1.entry-title {
+	padding: 1rem 2rem;
+	background-color: rgba(255,255,255,0.5);
+	display: inline-block;
+}
+
+.slider.overlay:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+
+// Main Navigation
+.top-bar-section li:not(.has-form) a:not(.button), .top-bar-section li.active:not(.has-form) a:not(.button) {
+	background: none;
+	margin-top: 20px;
+	line-height: 30px;
+	padding: 0;
+	text-transform: uppercase;
+}
+
+.header #inner-header li {
+	padding: 0 25px;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button):hover { 
+	@include nav-border-hover;
+}
+
+section.top-bar-section.right {
+	margin-right: 1rem;
+}
+
+.left-off-canvas-menu {
+	background-color: $uic-yellow;
+}
+
+ul.off-canvas-list li a {
+	border-bottom: #FFF;
+	color: $darkest-gray;
+	text-transform: uppercase;
+}
+
+ul.off-canvas-list li label, ul.off-canvas-list li a:hover {
+	background-color: $uic-yellow-hover;
+	color: $darkest-gray;
+}
+
+.left-small {
+	border: 0px
+}
+
+.tab-bar .menu-icon {
+	z-index: 1000;
+}
+
+@media only screen and (max-width: 40em) { 
+	.header #inner-header li {
+		padding: 0px;
+	}
+}
+
+
+// Home Page Mobile Fixes
+@media only screen and (max-width: 40em) { 
+	.large-12.columns.show-for-small-only {
+		margin: 0;
+		padding: 0;
+	}
+	.large-9.columns.large-centered.video-content {
+		top: 3% !important;
+	}
+	.video-title {
+		font-size: 3rem !important;
+		margin-left: 1rem !important;
+		margin-right: 1rem !important;
+	}
+	.service-dropdown {
+		padding: 1rem !important;
+	}
+	.service-dropdown-2 {
+		padding: 2rem !important;
+	}
+	.service-title {
+		text-align: center !important;
+		margin-top: 0 !important;
+		font-size: 2rem !important;
+		margin-bottom: 1rem !important;
+	}
+	div#video-container {
+		height: 375px !important;
+	}
+}
+
+// Footer
+.footer {
+	background-color: $darkest-gray;
+	margin-top: 0px !important;
+}
+.secondary-footer {
+	background-color: $lightest-gray;
+	padding: 2rem inherit;
+	color: $darkest-gray;
+	p, h1, h2, h3, h4, h5, h6, h7, h8, a {
+		color: $darkest-gray;
+	}
+	a:hover {
+		color: $dark-gray;
+	}
+	i.fa {
+		margin-right: 1.5rem;
+	}
+}
+@media only screen and (max-width: 40em) { 
+	i.fa {
+		font-size: 2rem !important;
+		margin-right: 1.5rem;
+	}
+}
+#inner-footer {
+	padding-top: 1.5rem;
+	color: #FFF;
+	p, h1, h2, h3, h4, h5, h6, h7, h8, a {
+		color: #FFF;
+	}
+	.sub-nav dt.active a, .sub-nav dd.active a, .sub-nav li.active a {
+		background-color: transparent;
+	}
+	.sub-nav dt.active a:hover, .sub-nav dd.active a:hover, .sub-nav li.active a:hover {
+		background-color: transparent;
+	}
+}
+
+// Sidebar
+.sidebar {
+	background-color: #FFF;
+	margin: 0;
+	padding: 0 0 0 2rem;
+	p {
+		font-size: .9rem;
+	}
+}
+
+@media only screen and (max-width: 40em) { 
+	.sidebar {
+		padding: 1rem;
+	}
+}
+
+.sidebar .widget {
+	margin: 0;
+	padding: 0;
+}
+
+.widgettitle {
+	background-color: $uic-yellow;
+	padding: 1rem 2rem;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.sidebar .textwidget {
+	padding: 1rem 2rem;
+	background-color: $secondary-footer-gray;
+}
+
+// Video Header
+div#video-container {
+	height: 500px;
+	margin-top: -75px;
+/*
+	background-image: url("http://uicstl.com/wp-content/uploads/uic-video-placeholder.png");
+	background-repeat: no-repeat;
+*/
+}
+
+#video-background { 
+	position: relative;
+	top: 0px;
+	left: 0px;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -1000;
+	overflow: hidden;
+}
+
+.lt-ie #video-background, .lt-ie9 #video-background, .lt-ie8 #video-background, .lt-ie7 #video-background {
+	margin-top: -75px;
+}
+
+@media only screen and (max-width: 40em) { 
+	div#video-container {
+		background-image: url("http://uicstl.com/wp-content/uploads/uic-video-placeholder.png");
+		background-position: center center;
+		background-size: cover;
+	}
+	video#video-background {
+		display: none;
+	}
+}
+
+// Firefox Fix for Video Header
+@-moz-document url-prefix() {
+	#video-background {
+		margin-top: -5rem;
+	}
+	div#video-container {
+		height: 495px;
+	}
+}
+
+// Video Header Fixes for Large Screen
+@media only screen and (min-width: 90.063em) {
+	div#video-container {
+		height: 600px;
+	}
+}
+
+// Revised Video Header Text
+.video-content-2 {
+	position: absolute;
+	left: 50%;
+	top: 10%;
+}
+
+.video-title-2 {
+	position: relative;
+	left: -50%;
+	background-color: rgba(255,255,255,0.5);
+	padding: 1rem 3rem;
+	font-size: 4rem;
+	white-space: nowrap;
+	text-align: center;
+	color: $darkest-gray;
+}
+
+@media only screen and (max-width: 40em) { 
+	.video-content-2 {
+		top: 2.5%;
+	}
+	.video-title-2 {
+		white-space: normal;
+		padding: 1rem;
+		font-size: 3rem;
+	}
+}
+
+// Original Homepage Icons
+/*
+.icons {
+	margin-bottom: 4rem;
+	
+	.square {
+		padding-bottom: 33.33333%;
+		width: 33.33333%;
+		position: relative;
+	}
+	
+	.icon-1, .icon-6 {
+		background-color: $light-gray;
+	}
+	
+	.icon-2, .icon-4 {
+		background-color: $medium-gray;
+	}
+
+	.icon-3, .icon-5 {
+		background-color: $dark-gray;
+	}
+	
+	.square:hover {
+		.icon-title {
+			background-color: rgba(255,255,255,0.5);
+			width: 100%;
+		}
+	}
+	
+	.icon-1:hover {
+		background-image: url('http://uicstl.com/wp-content/uploads/2014/09/arch-icon-e1413230618735.png');
+		background-repeat:no-repeat;
+		background-size:contain;
+		background-position:center;
+	}
+
+	.icon-2:hover {
+		background-image: url('http://uicstl.com/wp-content/uploads/2014/09/const-icon-e1413230644202.png');
+		background-repeat:no-repeat;
+		background-size:contain;
+		background-position:center;
+	}
+	
+	.icon-3:hover {
+		background-image: url('http://uicstl.com/wp-content/uploads/2014/09/home-icon-e1413230662489.png');
+		background-repeat:no-repeat;
+		background-size:contain;
+		background-position:center;
+	}
+	
+	.icon-4:hover {
+		background-image: url('http://uicstl.com/wp-content/uploads/2014/09/rent-icon-e1413230672785.png');
+		background-repeat:no-repeat;
+		background-size:contain;
+		background-position:center;
+	}
+
+	.icon-5:hover {
+		background-image: url('http://uicstl.com/wp-content/uploads/2014/09/carp-icon-e1413230634889.png');
+		background-repeat:no-repeat;
+		background-size:contain;
+		background-position:center;
+	}
+	
+	.icon-6:hover {
+		background-image: url('http://uicstl.com/wp-content/uploads/2014/09/devmt-icon-e1413230653240.png');
+		background-repeat:no-repeat;
+		background-size:contain;
+		background-position:center;
+	}
+		
+	.icon-title {
+		font-size: 2rem;
+		text-align: right;
+		position: absolute;
+		right: 0px;
+		bottom: 0px;
+		color: $darkest-gray;
+		padding-right: 20px;
+		padding-bottom: 10px;
+		padding-top: 10px;
+	}
+
+}
+*/
+
+
+// Revised Homepage Icons
+.icons {
+	margin-bottom: 0rem;
+	
+	.square {
+		padding-bottom: 16.66667%;
+		width: 16.66667%;
+		position: relative;
+	}
+	
+	.icon-1, .icon-5 {
+		background-color: $light-gray;
+	}
+	
+	.icon-2, .icon-4 {
+		background-color: #fffcd3;
+	}
+
+	.icon-3, .icon-6 {
+		background-color: #fff58b;
+	}
+	
+	.square:hover {
+		.icon-title {
+			background-color: rgba(255,255,255,0.5);
+			width: 100%;
+		}
+	}
+	
+	.icon-1:hover {
+		background-image: url('http://uicstl.com/wp-content/uploads/2014/09/arch-icon-e1413230618735.png');
+		background-repeat:no-repeat;
+		background-size:contain;
+		background-position:center;
+	}
+
+	.icon-2:hover {
+		background-image: url('http://uicstl.com/wp-content/uploads/2014/09/const-icon-e1413230644202.png');
+		background-repeat:no-repeat;
+		background-size:contain;
+		background-position:center;
+	}
+	
+	.icon-3:hover {
+		background-image: url('http://uicstl.com/wp-content/uploads/2014/09/home-icon-e1413230662489.png');
+		background-repeat:no-repeat;
+		background-size:contain;
+		background-position:center;
+	}
+	
+	.icon-4:hover {
+		background-image: url('http://uicstl.com/wp-content/uploads/2014/09/rent-icon-e1413230672785.png');
+		background-repeat:no-repeat;
+		background-size:contain;
+		background-position:center;
+	}
+
+	.icon-5:hover {
+		background-image: url('http://uicstl.com/wp-content/uploads/2014/09/carp-icon-e1413230634889.png');
+		background-repeat:no-repeat;
+		background-size:contain;
+		background-position:center;
+	}
+	
+	.icon-6:hover {
+		background-image: url('http://uicstl.com/wp-content/uploads/2014/09/devmt-icon-e1413230653240.png');
+		background-repeat:no-repeat;
+		background-size:contain;
+		background-position:center;
+	}
+		
+	.icon-title {
+		font-size: 1rem;
+		text-transform: uppercase;
+		text-align: right;
+		position: absolute;
+		right: 0px;
+		top: 0px;
+		color: $darkest-gray;
+		padding: 10px;
+		line-height: 1;
+	}
+
+}
+
+.service-dropdown-2 {
+	background-color: $lightest-gray;
+	padding: 2rem 4rem;
+	margin-bottom: 4rem;
+}
+
+
+@media only screen and (max-width: 40em) { 
+	.square {
+		padding-bottom: 50% !important;
+		width: 50% !important;
+	}
+	.icon-title {
+		font-size: 1rem !important;
+	}
+}
+
+// Slick Blog Carousel on the Homepage
+.blog-carousel {
+	margin-top: 4rem;
+	padding-top: 4rem;
+	background-color: $secondary-footer-gray;
+	.blog-title {
+		font-size: 1.5rem;
+		line-height: 1.5rem;
+	}
+	hr {
+		margin-top: .5rem;
+	}
+}
+.slick-prev, .slick-next {
+	height: 50px !important;
+	width: 50px !important;
+	top: 40% !important;
+}
+.slick-prev {
+	left: -40px !important;
+}
+.slick-next {
+	right: -40px !important;
+}
+.slick-prev:before, .slick-next:before { 
+    color:$dark-gray !important;
+    font-size: 50px !important;
+}
+
+// Custom Services Dropdown on Homepage
+.service-dropdown {
+	background-color: $lightest-gray;
+	padding: 2rem 4rem;
+}
+.service-title {
+	text-align: right;
+	margin-top: 3.5%;
+	font-size: 3rem;
+    font-weight: bold;
+    color: $darkest-gray;
+}
+div#dd {
+	color: $darkest-gray;
+}
+.wrapper-dropdown-5 {
+    /* Size & position */
+    position: relative;
+    width: 400px;
+    margin: 0;
+    padding: 20px 30px;
+ 
+    /* Styles */
+    background: $uic-yellow;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease-out;
+    font-size: 3rem;
+    font-weight: bold;
+}
+ 
+.wrapper-dropdown-5:after { /* Little arrow */
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    margin-top: -3px;
+    border-width: 20px 20px 0 20px;
+    border-style: solid;
+    border-color: $darkest-gray transparent;
+}
+.wrapper-dropdown-5 .dropdown {
+    /* Size & position */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+ 
+    /* Styles */
+    background: $uic-yellow;
+    list-style: none;
+    transition: all 0.3s ease-out;
+ 
+    /* Hiding */
+    max-height: 0;
+    overflow: hidden;
+}
+.wrapper-dropdown-5 .dropdown li {
+    padding: 0;
+}
+ 
+.wrapper-dropdown-5 .dropdown li a {
+    display: block;
+    text-decoration: none;
+    color: $darkest-gray;
+    padding: 10px 1rem;
+    transition: all 0.3s ease-out;
+    border-bottom: 1px solid $uic-yellow-hover;
+    font-size: 2rem;
+}
+ 
+.wrapper-dropdown-5 .dropdown li:last-of-type a {
+    border: none;
+}
+ 
+.wrapper-dropdown-5 .dropdown li i {
+    margin-right: 5px;
+    color: inherit;
+    vertical-align: middle;
+}
+ 
+/* Hover state */
+ 
+.wrapper-dropdown-5 .dropdown li:hover a {
+    color: #FFF;
+    background-color: $uic-yellow-hover;
+}
+
+/* Active state */
+ 
+.wrapper-dropdown-5.active {
+    background: $uic-yellow-hover;
+    box-shadow: none;
+    border-bottom: none;
+    color: white;
+    z-index: 1000;
+}
+ 
+.wrapper-dropdown-5.active:after {
+}
+ 
+.wrapper-dropdown-5.active .dropdown {
+    max-height: 500px;
+}
+
+ul.dropdown {
+	margin: 0;
+}
+
+@media only screen and (max-width: 40em) {
+	.wrapper-dropdown-5 {
+		width: 230px !important;
+		font-size: 1rem !important;
+		padding: 20px 20px;
+		margin-bottom: 1rem !important;
+	}
+	.wrapper-dropdown-5:after {
+		border-width: 10px 10px 0 10px;
+	}
+	.wrapper-dropdown-5 .dropdown li a {
+		font-size: 1rem !important;
+	}
+}
+
+// Isotope Styles
+.isotope-item {
+	width: 25%;
+	padding: 1rem;
+	background-color: #FFF;
+}
+
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+	.isotope-item {
+		width: 50%;
+		padding: 1rem;
+		background-color: #FFF;
+	}
+}
+
+@media only screen and (max-width: 40em) {
+	.isotope-item {
+		width: 100%;
+		padding: 1rem;
+		background-color: #FFF;
+	}
+}
+
+.isotope-item article {
+	padding: 1rem 2rem 2rem 2rem;
+	background-color: $lightest-gray;
+}
+
+#isotope-container {
+	list-style-type: none;
+}
+
+.services-nav {
+	padding: 0 1rem;
+	background-color: $uic-yellow;
+}
+
+.services-nav li a, .services-nav button.button {
+	background-color: $uic-yellow-hover;
+	padding: 1rem;
+	color: $darkest-gray;
+	margin-bottom: 0;
+	text-transform: uppercase;
+}
+
+.services-nav li a:focus, .services-nav button.button:focus {
+	outline:0;
+}
+
+.flex-video {
+	margin-bottom: 0;
+}
+
+// Contact Page
+.button, button {
+	background-color: $uic-yellow;
+	color: $darkest-gray;
+	text-transform: uppercase;
+	text-decoration: none !important;
+}
+.button:hover, button:hover {
+	background-color: $uic-yellow-hover;
+	color: $darkest-gray;
+	text-transform: uppercase;
+}
+a.button, a.button.expand {
+	text-decoration: none !important;
+}
+/* GOOGLE MAP */
+#googleMap iframe {
+   width: 100%;
+}
+
+#googleMap {
+   height: 350px;
+}
+
+#googleMap img { 
+	max-width: none; 
+}
+
+.contact h5 {
+	font-weight: bold;
+}
+
+.gform_wrapper .top_label input.medium, .gform_wrapper .top_label select.medium {
+	width: 100%;
+}
+
+// About Page
+.squares {
+	background-color: $light-gray;
+}
+.squares .icons {
+	margin-bottom: 0;
+}
+.squares .icons .square {
+	padding-bottom: 27%;
+	width: 29%;
+	border: 10px solid $uic-yellow;
+	margin: 21px;
+}
+.squares .icon .icon-title {
+	font-size: 2rem;
+	text-align: center;
+	position: absolute;
+	top: 35%;
+	left: 0px;
+	color: #FFF;
+	padding: 0;
+}
+.squares .icons .square:hover .icon-title {
+	background-color: transparent;
+}
+.squares .icons .square:hover {
+	border: 10px solid $medium-gray;
+}
+.home-icon {
+	background-color: $dark-gray;
+	/* background-image: url("http://uicstl.com/wp-content/uploads/2014/09/home-icon1.png"); */
+	background-position: center center;
+	background-size: cover;
+}
+.neighborhood-icon {
+	background-color: $dark-gray;
+	/* background-image: url("http://uicstl.com/wp-content/uploads/2014/09/neighborhood-icon.png"); */
+	background-position: center center;
+	background-size: cover;	
+}
+.city-icon {
+	background-color: $dark-gray;
+	/* background-image: url("http://uicstl.com/wp-content/uploads/2014/09/city-icon.png"); */
+	background-position: center center;
+	background-size: cover;	
+}
+@media only screen and (max-width: 40em) {
+	.squares .icons .square {
+		padding-bottom: 100% !important;
+		width: 100% !important;
+		border: 10px solid $uic-yellow;
+		margin: 10px 0;
+	}
+	.squares .icon .icon-title {
+		font-size: 2rem !important;
+	}
+}
+
+// Services Page
+.services  {
+	.squares {
+		background-color: #FFF !important;
+	}
+	.description {
+		p {
+			font-size: 1.6875rem;
+			font-weight: bold;
+		}
+	}
+}
+.services-icon-arch {
+	background-image: url('http://uicstl.com/wp-content/uploads/2014/09/arch-icon_overlay.png');
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-size:contain;
+}
+
+.services-icon-const {
+	background-image: url('http://uicstl.com/wp-content/uploads/2014/09/const-icon_overlay.png');
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-size:contain;
+}
+
+.services-icon-home {
+	background-image: url('http://uicstl.com/wp-content/uploads/2014/09/home-icon_overlay.png');
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-size:contain;
+}
+
+.services-icon-rent {
+	background-image: url('http://uicstl.com/wp-content/uploads/2014/09/rent-icon_overlay.png');
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-size:contain;
+}
+
+.services-icon-carp {
+	background-image: url('http://uicstl.com/wp-content/uploads/2014/09/carp-icon_overlay.png');
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-size:contain;
+}
+
+.services-icon-devmt {
+	background-image: url('http://uicstl.com/wp-content/uploads/2014/09/devmt-icon_overlay.png');
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-size:contain;
+}
+
+// Blinking Cursor
+	#typed-cursor {
+	font-weight: 100;
+    font-size: 30px;
+    color: $darkest-gray;
+	}
+	 
+	.slogan {
+	color: $darkest-gray;
+	font-size: 30px;
+	position: absolute;
+	top: 50%;
+	text-align: center;
+	margin: -60px 0 0 0;
+	display: block;
+	width: 100%;
+}
+
+#typed-cursor {
+	color: $darkest-gray;
+	font-weight: 100;
+	font-size: 48px;
+}
+
+#typed-cursor.blinking {
+  -webkit-animation: 1s blink step-end infinite;
+	-moz-animation: 1s blink step-end infinite;
+	-ms-animation: 1s blink step-end infinite;
+	-o-animation: 1s blink step-end infinite;
+	animation: 1s blink step-end infinite;
+}
+
+@keyframes "blink" {
+	from,to {
+	color: transparent;
+}
+ 50% {
+    color: black;
+ }
+
+}
+
+@-moz-keyframes blink {
+	from,to {
+	color: transparent;
+}
+ 50% {
+   color: $darkest-gray;
+ }
+
+}
+
+@-webkit-keyframes "blink" {
+	from,to {
+	color: transparent;
+}
+ 50% {
+   color: $darkest-gray;
+ }
+
+}
+
+@-ms-keyframes "blink" {
+	from,to {
+	color: transparent;
+}
+ 50% {
+   color: $darkest-gray;
+ }
+
+}
+
+@-o-keyframes "blink" {
+	from,to {
+	color: transparent;
+}
+ 50% {
+   color: $darkest-gray;
+ }
+}
+
+// Infinite Scroll
+.page-navigation-div {
+	display: none;
+}
+#infscr-loading {
+	position: fixed;
+	bottom: 30px;
+	left: 44%;
+	z-index: 100;
+	padding: 20px;
+	color: $darkest-gray;
+	font-size: 1rem;
+	font-weight: bold;
+	text-align: center;
+	background: white;
+	background: hsla( 0, 0%, 100%, 0.9 );
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+}
+
+@media only screen and (max-width: 40em) {
+	#infscr-loading {
+		left: 24%;
+	}
+}
+
+//Page Title Bar
+.page-title-bar {
+	padding: 0 1rem;
+	background-color: $darkest-gray;
+	text-transform: uppercase;
+	button, .button {
+		margin-bottom: 0;
+		background-color: $darkest-gray;
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+	h2 {
+		color: #FFF;
+		text-transform: uppercase;
+		margin-bottom: 0;
+		margin-top: 0;
+	}
+}
+
+.services-subnav {
+	padding: .84rem 1rem;
+	background-color: $uic-yellow;
+	.page-item a {
+		margin-right: .1rem;
+	}
+}
+
+.services-subnav li a, .services-subnav button.button {
+	background-color: $uic-yellow-hover;
+	padding: 1rem;
+	color: $darkest-gray;
+	margin-bottom: 0;
+	text-transform: uppercase;
+	margin-right: .2rem;
+}
+
+.services-subnav li a:focus, .services-subnav button.button:focus {
+	outline:0;
+}
+
+.PostWidget {
+	color: #FFF;
+	background-color: $uic-yellow;
+	padding: 1rem;
+	h3 {
+		text-align: center;
+		color: $darkest-gray;
+		text-transform: uppercase;
+		font-size: 2rem;
+		font-weight: bold;
+	}
+}
+
+
+// Customize Home Form
+button.customize {
+	text-transform: uppercase;
+	margin: 1rem 0;
+	color: #757575;
+}
+.customize-form img {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+// Recent Widgets Page
+.rpjc_widget_cat_recent_posts {
+	background-color: $secondary-footer-gray;
+	ul {
+		padding-bottom: 1rem;
+	}
+	li {
+		margin: 1rem 2rem;
+	}
+}
+
+// Blog
+h5.author {
+	color: #FFF;
+	text-align: center;
+	background: $medium-gray;
+	margin-top: 0;
+	padding: .5rem;
+}
+
+
+// Houzz
+#houzz {
+	width: 40px;
+	margin-right: 2rem;
+	margin-bottom: 2rem;
+	margin-left: 1rem;
+}
+#houzz:hover {
+	opacity: .65;
+}
+@media only screen and (max-width: 40em) {
+	#houzz {
+		width: 25px;
+		margin-right: 1rem;
+		margin-bottom: 1rem;
+		margin-left: 0;
+	}
+}
+
+ul.pagination li > a {
+	text-decoration: none !important;
+}
+
+div#main article img.alignright {
+	margin: 0 0 1rem 2rem;
+}
+
+@media only screen and (max-width: 40em) {
+	div#main article img.alignright {
+		margin: 0 0 2rem 0;
+	}
+	.category-press img.attachment-thumbnail.wp-post-image {
+		margin-bottom: 1rem;
+		width: 100%;
+	}
+	img.avatar.avatar-thumbnail.wp-user-avatar.wp-user-avatar-thumbnail.alignnone.photo {
+		width: 100%;
+	}
+}
+
+// Gravity Forms Styles
+.gform_wrapper.gf_browser_chrome .gfield_checkbox li input[type=checkbox], .gform_wrapper.gf_browser_chrome .gfield_radio li input[type=radio], .gform_wrapper.gf_browser_chrome .gfield_checkbox li input {
+	margin-left: 1px;
+}
+/*
+.gform_page_footer, .gform_page_footer.top_label {
+	width: 33% !important;
+	float: right !important;
+	border-top: none !important;
+}
+*/
+
+// Sidebar Widgets & Build CTA
+h4.widgettitle {
+	text-transform: uppercase;
+}
+.sidebar div#dd {
+	width: 100%;
+}
+.sidebar div#dd > ul > li > a {
+	font-size: 1rem !important;
+	text-decoration: none !important;
+}
+.sidebar div#dd > ul > li > a:hover {
+	background-color: $uic-yellow-hover;
+	color: #FFF;
+}
+.sidebar li a:hover {
+	background: none !important;
+}
+.customize-button {
+	background-color: $medium-gray;
+	color: #FFF;
+	margin-top: 1rem;
+}
+.customize-button:hover {
+	background-color: $dark-gray !important;
+	color: #FFF;
+}
+
+// About Kern Fix
+#container > div.page-title-bar > button > h2 {
+	letter-spacing: -1px;
+}
+
+// Team Page
+.th {
+	border: solid 4px #fff000;
+	box-shadow: none;
+}
+.team-thumbs {
+	margin-top: 3rem;
+	margin-bottom: 3rem;
+}
+
+/* ICON HOVER STYLES */
+
+figure { 
+  display: block; 
+  position: relative; 
+  float: left; 
+  overflow: hidden; 
+  margin: 0;
+  height: 157px;
+}
+
+figure.cap-bot {
+	background-color: #FFF;
+	text-align: center;
+}
+
+@media only screen and (min-width: 40.063em) and (max-width: 64em) { 
+	figure.cap-bot {
+	}
+}
+
+@media only screen and (max-width: 40em) { 
+	figure.cap-bot {
+		height: 120px;
+		width: 120px;
+	}
+	figure.cap-bot p {
+		font-size: 14px !important;
+		line-height: 16px !important;
+		margin-top: 40px !important;
+	}
+	figcaption {
+		display: none !important;
+	}
+	figure:before {
+		display: none;
+	}
+}
+
+figure.cap-bot p {
+	color: $darkest-gray;
+	margin-top: 20px;
+}
+
+figure img {
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+}
+
+figcaption { 
+  position: absolute; 
+  background: $uic-yellow; 
+  color: $darkest-gray; 
+  padding: 10px 20px; 
+  opacity: 0;
+  -webkit-transition: all 0.6s ease;
+  -moz-transition:    all 0.6s ease;
+  -o-transition:      all 0.6s ease;
+  text-align: center;
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+}
+
+figure:hover figcaption {
+  opacity: 1;
+}
+
+figure:hover:before {
+  opacity: 0;
+}
+
+.cap-bot:before { bottom: 10px; left: 10px; }
+.cap-bot figcaption { left: 0; height: 100%;  width: 100%; bottom: -30px;}
+.cap-bot:hover figcaption { bottom: 0; }
+
+.cta-icon:before {
+	display: none;
+}
+.text-bold {
+	font-weight: bold;
+}
+.reveal-modal, dialog {
+	border: solid 4px #fff000;
+	border-radius: 0 !important;
+}
+h2.team-name {
+	text-transform: uppercase;
+	margin-bottom: 0;
+}
+h4.team-title {
+	font-weight: bold;
+}
+
+/*
+button:focus {
+	outline: 1px solid $darkest-gray;
+	outline: 0 none;
+	box-shadow: 0 0 5px $darkest-gray;
+	border: 1px solid $darkest-gray;
+}
+*/
+
+.back-to-top {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    text-decoration: none;
+    color: $darkest-gray;
+    opacity: .5;
+    font-size: 12px;
+    padding: 1em;
+    display: none;
+}
+
+.back-to-top:hover {    
+    opacity: .75;
+}
+
+@media only screen and (max-width: 40em) { 
+	.back-to-top {
+		display: none !important;
+	}
+}
+
+// IE Hack to Fix Video Header on Home Page
+@media screen and (min-width:0\0) {
+	#video-background {
+		margin-top: -75px;
+	}
+}
+
+.customize-grid {
+	figure.cap-bot {
+		margin-bottom: 1rem;
+	}
+}
+
+dl.tabs.vertical {
+	margin-right: 3rem;
+}
+
+.tabs-content {
+	background: #fffcd3;
+	padding-right: 2rem;
+	.content h1 {
+		font-weight: bold;
+	}
+}
+
+#post-19 > section > dl > dd > a:hover, #post-19 > section > dl > dd > a:focus {
+	background: $uic-yellow-hover;
+}
+
+#post-19 > section > dl > dd > a, #post-19 > section > dl > dd > a {
+	text-transform: uppercase;
+	font-weight: bold;
+	text-decoration: none !important;
+	border-bottom: 1px solid $uic-yellow-hover;
+}
+
+.custom-button {
+	clear: both;
+}
+
+.fsBody .fsForm {
+	border: none !important;
+}
+
+div.fsSaveIncomplete {
+	box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+}
+
+button.fsNextButton button.fsPreviousButton button.fsSubmitButton {
+	border-top-left-radius: 0px !important;
+	border-top-right-radius: 0px !important;
+	border-bottom-right-radius: 0px !important;
+	border-bottom-left-radius: 0px !important;
+}
+
+@media only screen and (min-width: 641px) and (max-width: 768px) {
+	.header #inner-header li {
+		padding: 0 10px;
+	}
+	.video-title-2 {
+		font-size: 3rem;
+	}
+	.video-content-2 {
+		top: 12%;
+	}
+	.icons .icon-title {
+		font-size: .75rem;
+	}
+	.wrapper-dropdown-5 {
+		width: 250px;
+	}
+	.service-title {
+		margin-top: 18%;
+		font-size: 2rem;
+	}
+}
+
+.service-hover {
+	padding-bottom: 1rem;
+	padding-top: 2rem;
+}
+
+.service-hover:hover {
+	background-color: $lightest-gray;
+}
