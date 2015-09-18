@@ -24,7 +24,7 @@
 @import "settings";
 
 // import Foundation
-@import "/Volumes/Macintosh HD/Users/megancarroll/Documents/ Sites/UIC/slam-theme_v1/bower_components/foundation/scss/foundation.scss";
+@import "../../bower_components/foundation/scss/foundation.scss";
 
 // General
 #content {
@@ -1377,3 +1377,7 @@ button.fsNextButton button.fsPreviousButton button.fsSubmitButton {
 .service-hover:hover {
 	background-color: $lightest-gray;
 }
+
+
+
+@import "modules/*";

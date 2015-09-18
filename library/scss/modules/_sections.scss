@@ -1,0 +1,119 @@
+
+
+.slam_section { 
+	position: relative;
+}
+
+.slam_section_content {
+
+}
+
+
+// Colors
+.bg-white	{ background-color: #FFFFFF; color: #333 }
+.bg-yellow	{ background-color: #ffee00; color: #333 }
+.bg-silver	{ background-color: #f0f0f0; color: #333 } 
+.bg-gray	{ background-color: #757575; color: #FFF }
+.bg-dark	{ background-color: #333333; color: #FFF }
+.bg-black	{ background-color: #000000; color: #FFF }
+
+.bg-white-trans {
+	background-color: rgba(#FFF, .85);
+	color: #333;
+}
+
+// Opacity Settings
+.has_image {
+	overflow-y: hidden; 
+	position: relative;
+}
+.section_background_image {
+	&.opaque {
+		opacity: 1;
+	}
+	&.fade-85 {
+		opacity: .85;
+	}
+	&.fade-50 {
+		opacity: .5;
+	}
+	&.fade-15 {
+		opacity: .15;
+	}
+}
+
+// .parallax .section_background_image {
+// 	transition: .05s;
+// }
+
+.section_background_img {
+	position: absolute;
+	width: 100%;
+	top: -50%;
+
+}
+
+.section_background_div {
+	position: absolute; 
+	left:0px;
+	right:0px;
+	top: -100px;
+	bottom: -100px;
+	background-size: cover;
+	background-position: center center;
+}
+
+
+.attachment-top {
+	.section_background_div {
+		background-position: top center;
+	}
+}
+
+// Padding Settings
+.no-padding {
+	padding: 0px;
+}
+.thin-padding {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.normal-padding {
+	padding-top: 60px;
+	padding-bottom: 60px;
+}	
+.thick-padding {
+	padding-top: 120px;
+	padding-bottom: 120px;
+	.extra-thick & {
+		padding-top: 200px;
+		padding-bottom: 200px;
+	}
+}
+
+
+.content-padding {
+	padding: 30px;
+}
+
+// Content Width Settings
+.fullwidth .row {
+	max-width: 100%;
+	padding-left:	rem-calc(20);
+	padding-right:	rem-calc(20);
+}
+
+.no-overflow {
+	overflow: hidden;
+}
+
+.hidden {
+	display: none;
+}
+
+
+footer.footer,
+header.header {
+	z-index: 250;
+	position: relative;
+}
