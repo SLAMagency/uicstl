@@ -6,13 +6,20 @@ $prefix = 'slam_';
 
 
 $post_id = $_GET['post'] ? $_GET['post'] : $_POST['post_ID'] ;
+$post = get_post($post_id);
 $template_file = get_post_meta($post_id,'_wp_page_template',TRUE);
 
-if ($template_file == 'page-parent.php') {
+if ($template_file == 'page-parent.php' || $post->post_parent) {
   	add_action( 'add_meta_boxes', 'slam_page_children_meta_box' );
 }
 
 
+function slam_enqueue_adminjs() {
+	wp_enqueue_script( 'admin-js', get_stylesheet_directory_uri() . '/library/js/admin.js', array( 'jquery' ), false, false);
+}
+
+add_action( 'admin_enqueue_scripts', 'slam_enqueue_adminjs' );
+	
 
 
 $fields = array(
@@ -76,9 +83,11 @@ $fields = array(
 		
 );
 
-if ($template_file == 'page-parent.php') {
+if ($template_file == 'page-parent.php' || $post->post_parent ) {
 	$page_box = new custom_add_meta_box( 'slam_page_options', 'Page Set-up', $fields, 'page', true );
 }
+
+
 
 
 function slam_page_children_meta_box_callback($post) {

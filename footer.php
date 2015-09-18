@@ -26,6 +26,10 @@
 				</div> <!-- end #container -->
 			</div> <!-- end .inner-wrap -->
 		</div> <!-- end .off-canvas-wrap -->
+		<div id="inquiry_modal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+		  <?php echo do_shortcode('[gravityform id=5 title=false description=false ajax=true]'); ?>
+		  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+		</div>
 						
 				<!-- all js scripts are loaded in library/slam.php -->
 				<?php wp_footer(); ?>

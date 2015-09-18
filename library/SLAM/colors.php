@@ -46,11 +46,10 @@ DEFINE COLORS
 
 $colors = array(
 	'white' 	=> new Color('white', 	'FFFFFF'),
-	'yellow' 	=> new Color('yellow', 	'fcc90f'),
-	'navy'		=> new Color('navy', 	'102233'),
-	'blue'		=> new Color('blue', 	'056bcd'),
-	'gray'		=> new Color('gray', 	'cccccc'),
-	'metal'		=> new Color('metal', 	'dddddd'),
+	'yellow' 	=> new Color('yellow', 	'ffee00'),
+	'silver'	=> new Color('silver', 	'f0f0f0'),
+	'gray'		=> new Color('gray', 	'757575'),
+	'dark'		=> new Color('dark', 	'333333'),
 	'black' 	=> new Color('black', 	'000000'),
 );
 

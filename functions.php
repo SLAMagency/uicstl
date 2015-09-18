@@ -226,6 +226,7 @@ add_filter('the_title', 'the_title_trim');
 
 //if($_GET['dev'] == true) {
 
+	require_once('library/SLAM/slam_post.php'); 
 	include('library/classes/metaboxes/meta_box.php');
 	include('library/post-types/unit.php');
 	include('library/post-types/model.php');

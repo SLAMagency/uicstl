@@ -36,6 +36,12 @@ $fields = array(
 		'type'	=> 'image' // type of field
 	),
 	array( // jQuery UI Date input
+		'label'	=> 'Link to', // <label>
+		//'desc'	=> 'When does this group meet?', // description
+		'id'	=> $prefix.'link_to', // field id and name
+		'type'	=> 'text' // type of field
+	),
+	array( // jQuery UI Date input
 		'label'	=> 'Amenities', // <label>
 		//'desc'	=> 'When does this group meet?', // description
 		'id'	=> $prefix.'model_amenities', // field id and name
@@ -179,17 +185,104 @@ function model_post_type() {
     
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - CLASS
 
-class Model {	
+class Model extends SlamPost{	
 
 	function __construct(&$post) {
 
-		
+		parent::__construct($post);	
+
+		if($this->link_to) {
+			$this->link = $this->link_to;
+		} else {
+			$this->link = $this->permalink;
+		}
+
+		$info  = "<h4 class='block-background bg-white'>{$this->title}</h4><br/>";
+		$info .= "<p>" . $post->post_excerpt . "</p>";
+		$info .= "<a href='{$this->link}' class='button bg-dark tiny'>Learn More</a>";
+
+		$this->info = $info;
+
+	}
+
+
+	public function block() {
+
+		$out = "<li class='model list block'>";
+
+		$out .= "<img src='" . $this->image_src() . "'/>";
+
+		$out .= "<a class='model-title block-background' href='{$this->permalink}'><h4>{$this->title}</h4></a>";
+
+		$out .= "<div class='info content-padding'>{$this->info}</div>";
+
+		$out .= "</li>";
+
+
+		return $out;
 
 	}
 
 }
 
 
+
+
+
+
+function slam_get_models( $atts ) {
+	$atts = shortcode_atts( array(
+		'category'  => '',
+		'tags'		=> '',
+		'number'	=> ''
+	), $atts );
+
+		/**
+		 * The WordPress Query class.
+		 * @link http://codex.wordpress.org/Function_Reference/WP_Query
+		 *
+		 */
+		$args = array(
+			
+			//Category Parameters
+			//'category_name'    => $category,
+
+			//Type & Status Parameters
+			'post_type'   => 'model',
+
+			//Tag Parameters
+			//'tag'           => $tag,
+			
+			//Pagination Parameters
+			//'posts_per_page'         => $number,
+			
+		);
+	
+	$model_query = new WP_Query( $args );
+
+	if ( $model_query->have_posts() ) {
+
+		$out = "<ul class='model-grid large-block-grid-4 medium-block-grid-2 small-block-grid-1'>";
+
+		while( $model_query->have_posts() ) {
+			$model_query->the_post();
+			$model = new Model($model_query->post);
+
+			$out .= $model->block();
+
+		}
+
+		$out .= "</ul>";
+	}
+
+
+
+
+	return $out;
+
+	// do shortcode actions here
+}
+add_shortcode( 'get_models','slam_get_models' );
 
 
 

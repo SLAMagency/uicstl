@@ -1,5 +1,7 @@
 <?php
 
+//require_once(get_stylesheet_directory_uri().'/library/SLAM/traits/Images.php');
+
 
 class SlamPost {
 
@@ -18,8 +20,49 @@ class SlamPost {
 
 		// If expiration date is past, change status to draft.
 		//$this->expire();
+		//
+		
+		// Set image id
+		$this->image_id();
 
 	}
+
+
+	/**
+	 * Sets and returns the attachment id of the featured image
+	 * @return integer
+	 */
+	public function image_id() {
+		$this->image = get_post_thumbnail_id( $this->post->ID );
+		return $this->image;
+	}
+
+	/**
+	 * Returns the url to the specified size of the featured image.
+	 * @param  size
+	 * @return string - url
+	 */
+	public function image_src($size = 'large') {
+		$image = wp_get_attachment_image_src( $this->image, $size );
+		return $image[0];
+	}
+
+	/**
+	 * Returns a simple img html element for hte featured image. 
+	 * @param  size
+	 * @return html
+	 */
+	public function image_html($size = 'large') {
+		if($this->image) {
+			$image = wp_get_attachment_image_src( $this->image, $size );
+			return "<img src='{$image[0]}' width='{$image[1]}' height='{$image[2]}' />";
+		}
+		// } else {
+		// 	$image = get_theme_mod('ak_default_image');
+		// 	return "<img class='lazy' data-original='{$image}' />";
+		// }
+	}
+
 
 	private function load_meta_values() {
 		// Load all Meta
@@ -38,6 +81,10 @@ class SlamPost {
 			$this->$key = $value; //isset( $inputs[$key] ) ? $inputs[$key] : $default;
 
 		}
+
+		$this->title = $this->post->post_title;
+		$this->content = $this->post->post_content;
+		$this->permalink = $this->post->guid;
 
 	}
 
