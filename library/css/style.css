@@ -15473,6 +15473,10 @@ button.fsNextButton button.fsPreviousButton button.fsSubmitButton {
   background-color: #000000;
   color: #FFF; }
 
+.bg-yellow .button {
+  background-color: #333;
+  color: #FFF; }
+
 .bg-white-trans {
   background-color: rgba(255, 255, 255, 0.85);
   color: #333; }

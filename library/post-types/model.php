@@ -248,7 +248,9 @@ function slam_get_models( $atts ) {
 			//'category_name'    => $category,
 
 			//Type & Status Parameters
-			'post_type'   => 'model',
+			'post_type'   	=> 'model',
+			'order_by'		=> 'menu_order',
+			'order'			=> 'ASC',
 
 			//Tag Parameters
 			//'tag'           => $tag,

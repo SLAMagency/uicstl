@@ -1,5 +1,9 @@
 <?php
 
+//Disable Gravity Forms Tab Index
+add_filter( 'gform_tabindex', '__return_false' );
+
+
 //Get UIC Child Theme Styles
 function uic_styles() {
 	wp_dequeue_style( 'slam-stylesheet' );
