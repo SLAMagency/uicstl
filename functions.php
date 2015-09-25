@@ -241,5 +241,9 @@ add_filter('the_title', 'the_title_trim');
 	require_once('library/SLAM/page.php'); 
 
 //}
+//
+
+
+add_filter('widget_text', 'do_shortcode');
 
 ?>
