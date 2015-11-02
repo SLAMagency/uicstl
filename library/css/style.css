@@ -15454,6 +15454,16 @@ button.fsNextButton button.fsPreviousButton button.fsSubmitButton {
 .collage-image.height-2 {
   height: 65vw; }
 
+.over-row {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  width: 100%; }
+
+img.fill {
+  min-width: 100%;
+  min-height: 100%; }
+
 .list.block {
   margin: 0px;
   padding: 0px;
@@ -15610,6 +15620,9 @@ footer.footer,
 header.header {
   z-index: 250;
   position: relative; }
+
+figcaption {
+  font-size: 12px; }
 
 .button.no-margin {
   margin: 0px; }

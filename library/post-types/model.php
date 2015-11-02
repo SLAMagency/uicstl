@@ -293,6 +293,13 @@ class Model extends SlamPost{
 				$children->the_post();
 				$model = new Model($children->post);
 
+				$info = "";
+				$info .= "<p>" . $model->post->post_excerpt . "</p>";
+				$info .= "<p>From " . $model->model_price . "</p>";
+				$info .= "<a href='{$model->link}' class='button bg-dark tiny'>Learn More</a>";
+
+				$model->info = $info;
+
 				$out .= $model->block('model-children');
 
 			}

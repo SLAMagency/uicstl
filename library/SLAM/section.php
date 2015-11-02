@@ -34,6 +34,8 @@ class Section {
 
 		}
 
+		$this->content = $this->post->post_content;
+
 	}
 
 	private function get_values_from_meta($id) {
@@ -104,7 +106,7 @@ class Section {
 					echo "<div class='row'>";
 						echo "<div class='columns small-12'>"; 
 				}
-							echo do_shortcode( $this->post->post_content );
+							echo do_shortcode( $this->content );
 				if($this->content_width != 'fullwidth') {
 						echo "</div>";
 					echo "</div>";

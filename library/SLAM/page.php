@@ -140,6 +140,86 @@ function slam_page_children_meta_box_callback($post) {
 
 function slam_page_children_meta_box() {
 	add_meta_box( 'slam_page_children_meta_box', 'Page Sections', 'slam_page_children_meta_box_callback', 'page', 'normal', 'high' );
-
 }
+
+
+
+
+/* --- 
+	Home Page with Features
+	--- */
+
+	$fields = array(
+
+		array(
+			'label' => 'Content',
+			'id'	=> $prefix.'feature_content',
+			'type'	=> 'editor',
+		),
+		
+		array( // 
+			'label'	=> 'Background Color', // <label>
+			'id'	=> $prefix.'background_color', // field id and name
+			'type'	=> 'select', // type of field
+			'default' => 'white',
+			'options' => slam_get_color_options('name')
+		),
+		array( // 
+			'label'	=> 'Padding', // <label>
+			'id'	=> $prefix.'padding', // field id and name
+			'type'	=> 'akselect', // type of field
+			'default' => 'normal-padding',
+			'options' => array(
+				'None' 		=> 'no-padding',
+				'Thin'		=> 'thin-padding',
+				'Normal' 	=> 'normal-padding',
+				'Thick'		=> 'thick-padding',
+			),
+		),
+		array( // 
+			'label'	=> 'Content Width', // <label>
+			'id'	=> $prefix.'content_width', // field id and name
+			'type'	=> 'akselect', // type of field
+			'default' => 'boxed',
+			'options' => array(
+				'Full Width' 		=> 'fullwidth',
+				'Normal'			=> 'boxed',
+				'Two-Thirds' 		=> 'two-thirds',
+				'Half'				=> 'half',
+			),
+		),
+		// Image Options
+		array( // Messages Notes
+			'label'	=> 'Background Image', // <label>
+			//'desc'	=> 'Use', // description
+			'id'	=> $prefix.'background_image', // field id and name
+			'type'	=> 'image' // type of field
+		),
+		array( // 
+			'label'	=> 'Image Opacity', // <label>
+			'id'	=> $prefix.'image_opacity', // field id and name
+			'type'	=> 'akselect', // type of field
+			'default' => 'opaque',
+			'options' => array(
+				'Opaque' => 'opaque',
+				'85%'	=> 'fade-85',
+				'50%'	=> 'fade-50',
+				'15%'	=> 'fade-15',
+			),
+		),
+		array( // Messages Notes
+			'label'	=> 'Additional Classes', // <label>
+			//'desc'	=> 'Use', // description
+			'id'	=> $prefix.'additional_classes', // field id and name
+			'type'	=> 'text' // type of field
+		),
+			
+	);
+
+	if ($template_file == 'page-home-feature.php' ) {
+		$feature_section_box = new custom_add_meta_box( 'slam_page_options', 'Feature Section Options', $fields, 'page', true );
+	}
+
+
+
 
