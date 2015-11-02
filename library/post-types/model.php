@@ -29,41 +29,55 @@ $fields = array(
 	// 	'type'	=> 'text' // type of field
 	// ),
 
-	array( // jQuery UI Date input
+	array( // 
+		'label'	=> 'Thumbnail', // <label>
+		//'desc'	=> 'When was this message?', // description
+		'id'	=> $prefix.'model_thumbnail', // field id and name
+		'type'	=> 'image' // type of field
+	),
+	array( // 
+		'label'	=> 'Gallery Shortcode', // <label>
+		//'desc'	=> 'When was this message?', // description
+		'id'	=> $prefix.'gallery', // field id and name
+		'type'	=> 'text' // type of field
+	),
+	array( // 
 		'label'	=> 'Floorplan', // <label>
 		//'desc'	=> 'When was this message?', // description
 		'id'	=> $prefix.'model_floorplan', // field id and name
 		'type'	=> 'image' // type of field
 	),
-	array( // jQuery UI Date input
-		'label'	=> 'Link to', // <label>
-		//'desc'	=> 'When does this group meet?', // description
+	array( // 
+		'label'	=> 'Brochure', // <label>
+		//'desc'	=> 'When was this message?', // description
+		'id'	=> $prefix.'brochure', // field id and name
+		'type'	=> 'file' // type of field
+	),
+	array( //
+		'label'	=> 'Link Override', // <label>
+		'desc'	=> 'In case you do not actually want to link to the model page', // description
 		'id'	=> $prefix.'link_to', // field id and name
 		'type'	=> 'text' // type of field
 	),
-	array( // jQuery UI Date input
-		'label'	=> 'Amenities', // <label>
+	array( // 
+		'label'	=> 'Features', // <label>
 		//'desc'	=> 'When does this group meet?', // description
 		'id'	=> $prefix.'model_amenities', // field id and name
 		'type'	=> 'textarea' // type of field
 	),
-	array( // jQuery UI Date input
+	array( // 
 		'label'	=> 'Price', // <label>
 		//'desc'	=> 'When does this group meet?', // description
 		'id'	=> $prefix.'model_price', // field id and name
 		'type'	=> 'text' // type of field
 	),
+
 	// array( // Repeatable & Sortable Text inputs
 	// 	'label'	=> 'Images', // <label>
 	// 	'desc'	=> 'Add images for gallery.', // description
 	// 	'id'	=> $prefix.'gallery_images', // field id and name
 	// 	'type'	=> 'repeatable', // type of field
-	// 	// 'sanitizer' => array( // array of sanitizers with matching kets to next array
-	// 	// 	'classes' => 'sanitize_text_field',
-	// 	// 	'background_image' => 'wp_kses_data',
-	// 	// 	'background_color' => 'wp_kses_data',
-	// 	// 	'content' => 'wp_kses_post'
-	// 	// ),
+
 	// 	'repeatable_fields' => array ( // array of fields to be repeated
 	// 		'background_image' => array( // Image ID field
 	// 			//'class'	=> 'sixcol first',
@@ -185,6 +199,7 @@ function model_post_type() {
     
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - CLASS
 
+
 class Model extends SlamPost{	
 
 	function __construct(&$post) {
@@ -203,14 +218,41 @@ class Model extends SlamPost{
 
 		$this->info = $info;
 
+		// if($this->brochure) {
+		// 	$this->brochure = wp_get_attachment_url( $this->brochure );
+		// }
+
+	}
+
+	public function model_thumbnail($size = 'large') {
+
+		$fallback = 'large';
+
+		if($this->model_thumbnail) {
+			$thumb = wp_get_attachment_image_src( $this->model_thumbnail, $size);
+			
+
+			if( $thumb[1] != 800 ) {
+				$thumb = wp_get_attachment_image_src( $this->model_thumbnail, $fallback);
+			}
+
+			$thumbnail = $thumb[0];
+
+		} else {
+			$thumbnail = $this->image_src();
+		}
+		return $thumbnail;
 	}
 
 
-	public function block() {
+	public function block($class = 'block') {
 
-		$out = "<li class='model list block'>";
+		$thumbnail = $this->model_thumbnail('square');
+		
 
-		$out .= "<img src='" . $this->image_src() . "'/>";
+		$out = "<li class='model list {$class}'>";
+
+		$out .= "<img class='model-thumbnail' src='" . $thumbnail . "'/>";
 
 		$out .= "<a class='model-title block-background' href='{$this->permalink}'><h4>{$this->title}</h4></a>";
 
@@ -222,6 +264,47 @@ class Model extends SlamPost{
 		return $out;
 
 	}
+
+
+
+	public function children() {
+
+		
+
+		$args = array(
+			'post_parent' 	=> $this->post->ID,
+			'post_type'	  	=> 'model',
+			'order_by'		=> 'menu_order',
+			'order'			=> 'ASC',
+		);
+		$children = new WP_Query( $args );
+		//print_r($children);
+
+		if ( $children->have_posts() ) {
+
+			$out .= "<div class='slam_section model-children'>
+							<div class='slam_section_content normal-padding row'>";
+
+			$out .= "<h3 class='model-children-header text-center'>Available Models</h3><hr>";
+
+			$out .= "<ul class='model-grid model-grid-children large-block-grid-3 medium-block-grid-2 small-block-grid-1'>";
+
+			while( $children->have_posts() ) {
+				$children->the_post();
+				$model = new Model($children->post);
+
+				$out .= $model->block('model-children');
+
+			}
+
+			$out .= "</ul></div></div>";
+		}
+
+		return $out;
+
+
+	}
+
 
 }
 
@@ -237,11 +320,7 @@ function slam_get_models( $atts ) {
 		'number'	=> ''
 	), $atts );
 
-		/**
-		 * The WordPress Query class.
-		 * @link http://codex.wordpress.org/Function_Reference/WP_Query
-		 *
-		 */
+		
 		$args = array(
 			
 			//Category Parameters
@@ -251,6 +330,7 @@ function slam_get_models( $atts ) {
 			'post_type'   	=> 'model',
 			'order_by'		=> 'menu_order',
 			'order'			=> 'ASC',
+			'post_parent'	=> 0,
 
 			//Tag Parameters
 			//'tag'           => $tag,

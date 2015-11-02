@@ -318,7 +318,7 @@ function slam_list_posts( $atts, $content) {
 
 	// Get Posts
 	$args = array(
-		'category_name'    => 'for-rent',
+		'category_name'    => $category_name,
 		'posts_per_page'         => $number
 	);
 	

@@ -228,6 +228,10 @@ add_filter('the_title', 'the_title_trim');
 
 //}
 
+
+add_image_size( 'square', 800, 800, true);
+
+
 //if($_GET['dev'] == true) {
 
 	require_once('library/SLAM/slam_post.php'); 
@@ -245,5 +249,11 @@ add_filter('the_title', 'the_title_trim');
 
 
 add_filter('widget_text', 'do_shortcode');
+
+
+
+
+
+
 
 ?>

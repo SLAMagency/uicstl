@@ -1,0 +1,29 @@
+.photo-collage.row {
+	padding: 0px;
+}
+
+
+.collage-content {
+	line-height: 3em;
+	position: relative;
+	background: #E1E1E1;
+	text-align: center;
+	font-weight: bold;
+	font-size: 2em;
+
+}
+
+.collage-content a.button {
+	position: relative;
+	top: -5px;
+	font-weight: bold;
+
+}
+
+.collage-image {
+	background-size: cover;
+	background-position: center center;
+}
+.collage-image.height-2 {
+	height: 65vw;
+}

@@ -90,7 +90,8 @@
 .thick-padding {
 	padding-top: 120px;
 	padding-bottom: 120px;
-	.extra-thick & {
+	.extra-thick &,
+	.extra-padding & {
 		padding-top: 200px;
 		padding-bottom: 200px;
 	}
@@ -101,12 +102,39 @@
 	padding: 30px;
 }
 
-// Content Width Settings
-.fullwidth .row {
-	max-width: 100%;
-	padding-left:	rem-calc(20);
-	padding-right:	rem-calc(20);
+.side-padding {
+	padding-left: 30px;
+	padding-right: 30px;
 }
+
+
+// - - - - - - - - - - - - - 
+// Content Width Settings
+// - - - - - - - - - - - - - 
+// .fullwidth .row {
+// 	max-width: 100%;
+// 	padding-left:	rem-calc(20); 
+// 	padding-right:	rem-calc(20);
+// }
+.fullwidth.row,
+.fullwidth.slam_section_content > .row  {
+	max-width: 100%;
+}
+
+.slam_section_content.two-thirds > .row > .columns {
+	@extend .medium-8;
+	@extend .small-centered;
+	margin: 0px auto;
+}
+
+.slam_section_content.half > .row > .columns {
+	@extend .medium-6;
+	@extend .small-centered;
+	margin: 0px auto;
+}
+
+
+
 
 .no-overflow {
 	overflow: hidden;
